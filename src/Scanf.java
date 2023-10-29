@@ -67,7 +67,8 @@ public class Scanf {
                 adventurers.get(advId2).belong(adventurers.get(advId1));
             } else if (type == 19) {
                 Adventurer ad = adventurers.get(scanner.nextInt());
-                System.out.println(ad.getOwnCommodity().size() + " " + ad.aqPrice());
+                long ans = ad.aqPrice() - ad.getMoney();
+                System.out.println(ad.getOwnCommodity().size() + " " + ans);
             } else if (type == 20) {
                 Adventurer ad = adventurers.get(scanner.nextInt());
                 System.out.println(ad.aqMaxprice());

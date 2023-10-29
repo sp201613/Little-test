@@ -131,6 +131,7 @@ public class Adventurer implements Commodity, Employer, Employee {
         for (Commodity i: ownCommodity) {
             x += i.aqPrice();
         }
+        x += money;
         return x;
     }
 
