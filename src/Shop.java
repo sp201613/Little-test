@@ -11,19 +11,16 @@ public class Shop {
     public void adSellEp(Adventurer ad, Equipment x) {
         inep.add(x);
         ad.addmoney(x.getPrice());
-        ad.getOwnCommodity().remove(x);
     }
 
     public void adSellBt(Adventurer ad, Bottle x) {
         inbt.add(x);
         ad.addmoney(x.getPrice());
-        ad.getOwnCommodity().remove(x);
     }
 
     public void adSellFd(Adventurer ad, Food x) {
         infd.add(x);
         ad.addmoney(x.getPrice());
-        ad.getOwnCommodity().remove(x);
     }
 
     public long adBuyRgep(Adventurer ad, int id, String name, String type) {
@@ -41,6 +38,7 @@ public class Shop {
         if (ad.getMoney() < sellprice) { return sellprice; }
         Equipment ep = new RegularEquipment(id, name, star, sellprice, type);
         ad.addEquipment(ep);
+        ep.belong(ad);
         return sellprice;
     }
 
@@ -59,6 +57,7 @@ public class Shop {
         if (ad.getMoney() < sellprice) { return sellprice; }
         Equipment ep = new CritEquipment(id, name, star, sellprice, type, critical);
         ad.addEquipment(ep);
+        ep.belong(ad);
         return sellprice;
     }
 
@@ -77,6 +76,7 @@ public class Shop {
         if (ad.getMoney() < sellprice) { return sellprice; }
         Equipment ep = new EpicEquipment(id, name, star, sellprice, type, ratio);
         ad.addEquipment(ep);
+        ep.belong(ad);
         return sellprice;
     }
 
@@ -95,6 +95,7 @@ public class Shop {
         if (ad.getMoney() < sellprice) { return sellprice; }
         Bottle bt = new RegularBottle(id, name, capacity, sellprice, type);
         ad.addBottle(bt);
+        bt.belong(ad);
         return sellprice;
     }
 
@@ -113,6 +114,7 @@ public class Shop {
         if (ad.getMoney() < sellprice) { return sellprice; }
         Bottle bt = new RecoverBottle(id, name, capacity, sellprice, type, ratio);
         ad.addBottle(bt);
+        bt.belong(ad);
         return sellprice;
     }
 
@@ -131,6 +133,7 @@ public class Shop {
         if (ad.getMoney() < sellprice) { return sellprice; }
         Bottle bt = new ReinforcedBottle(id, name, capacity, sellprice, type, ratio);
         ad.addBottle(bt);
+        bt.belong(ad);
         return sellprice;
     }
 
@@ -149,6 +152,7 @@ public class Shop {
         if (ad.getMoney() < sellprice) { return sellprice; }
         Food fd = new Food(id, name, energy, sellprice);
         ad.addFood(fd);
+        fd.belong(ad);
         return sellprice;
     }
 }
