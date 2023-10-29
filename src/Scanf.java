@@ -50,7 +50,7 @@ public class Scanf {
                 System.out.println("Enter Fight Mode");
                 logg.checkMessage(numMes);
                 logg.adClear();
-                for (int j = 1;j <= m;++j) {
+                for (int j = 0;j < m;++j) {
                     Adventurer ad = employers.get(j);
                     int preHit = hits.get(j);
                     ad.notifyEmployee(preHit);
