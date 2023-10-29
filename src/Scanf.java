@@ -110,6 +110,7 @@ public class Scanf {
             Bottle bt = adventurers.get(advId).getBottles().get(scanner.nextInt());
             System.out.println(adventurers.get(advId).getBtSize() - 1 + " " + bt.getName());
             Shop.getShop().adSellBt(adventurers.get(advId), bt);
+            adventurers.get(advId).outBottle(bt);
         } else if (type == 4) {
             int equId = scanner.nextInt();
             String name = scanner.next();
@@ -128,12 +129,12 @@ public class Scanf {
                 double ratio = scanner.nextDouble();
                 Equipment ep = new EpicEquipment(equId, name, star, price, tp, ratio);
                 adventurers.get(advId).addEquipment(ep);
-                ep.belong(adventurers.get(advId));
-            }
+                ep.belong(adventurers.get(advId)); }
         } else if (type == 5) {
             Equipment ep = adventurers.get(advId).getEquipments().get(scanner.nextInt());
             System.out.println(adventurers.get(advId).getEpSize() - 1 + " " + ep.getName());
             Shop.getShop().adSellEp(adventurers.get(advId), ep);
+            adventurers.get(advId).outEquipment(ep);
         } else if (type == 6) {
             Equipment ep = adventurers.get(advId).getEquipments().get(scanner.nextInt());
             ep.levelup();
