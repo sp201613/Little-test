@@ -151,6 +151,7 @@ public class Scanf {
         } else if (type == 8) {
             Food fd = adventurers.get(advId).getFood().get(scanner.nextInt());
             System.out.format("%d %s\n",adventurers.get(advId).getFdSize() - 1,fd.getName());
+            Shop.getShop().adSellFd(adventurers.get(advId), fd);
             adventurers.get(advId).outFood(fd);
         } else if (type == 9) {
             adventurers.get(advId).takeEquipent(scanner.nextInt());
