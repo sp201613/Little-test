@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.Iterator;
 
 public class Pack {
     private HashSet<Equipment> peq = new HashSet<>();//背包里携带的武器
