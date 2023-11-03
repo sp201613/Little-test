@@ -64,15 +64,12 @@ public class Pack {
     public int tryeatFood(String x) {
         int minn = 2147483647;
         int flag = 0;
-        Food fd = new Food(1,"1",1,1);
         for (Food item : pfd) {
             if (x.equals(item.getName())) {
                 minn = minn > item.getId() ? item.getId() : minn;
-                fd = item;
                 flag = 1;
             }
         }
-        if (flag == 1) { pfd.remove(fd); }
         return flag == 1 ? minn : -1;
     }
 

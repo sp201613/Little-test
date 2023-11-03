@@ -180,7 +180,7 @@ public class Adventurer implements Commodity, Employer, Employee {
     @Override
     public void notifyEmployee(int x) {
         int less = x - hitPoint;
-        if (less <= 0 || hitPoint * 2 > x) {
+        if (less <= 0 || hitPoint  > x / 2) {
             return;
         }
         for (Employee i : employees) {
