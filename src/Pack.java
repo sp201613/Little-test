@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Pack {
     private HashSet<Equipment> peq = new HashSet<>();//背包里携带的武器
@@ -37,7 +38,10 @@ public class Pack {
     }
 
     public void takeFood(Food x) {
-        if (!pfd.contains(x)) { pfd.add(x); }
+        if (!pfd.contains(x)) {
+            pfd.add(x);
+            //System.out.println("ok " + x.getName());
+        }
     }
 
     public void outBottle(Bottle x) { pbt.remove(x); }

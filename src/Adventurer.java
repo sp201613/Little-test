@@ -81,7 +81,7 @@ public class Adventurer implements Commodity, Employer, Employee {
         if (pid == -1) { return -1; }
         else {
             Bottle bt = bottles.get(pid);
-            if (bt.getCapacity() != 0) {
+            if (bt.getIsEmpty() != 0) {
                 if (bt instanceof RegularBottle) {
                     hitPoint += bt.useBottle(hitPoint);
                 } else if (bt instanceof ReinforcedBottle) {
@@ -180,7 +180,7 @@ public class Adventurer implements Commodity, Employer, Employee {
     @Override
     public void notifyEmployee(int x) {
         int less = x - hitPoint;
-        if (less <= 0) {
+        if (less <= 0 || hitPoint * 2 > x) {
             return;
         }
         for (Employee i : employees) {
@@ -192,11 +192,12 @@ public class Adventurer implements Commodity, Employer, Employee {
     public long help(int x) {
         long need = (long)x * 10000;
         if (money < need) {
+            long nd = money;
             money = 0;
-            return money;
+            return nd;
         } else {
             money -= need;
-            return money;
+            return need;
         }
     }
 }
