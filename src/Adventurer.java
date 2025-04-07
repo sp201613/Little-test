@@ -201,3 +201,4 @@ public class Adventurer implements Commodity, Employer, Employee {
         }
     }
 }
+
