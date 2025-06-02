@@ -5,7 +5,7 @@ public class Bottle implements Commodity {
     private long price;
     private String type;
     private int isEmpty;
-
+	//fortest
     public Bottle(int id, String name, int capacity,
                   long price, String type) {
         this.id = id;
